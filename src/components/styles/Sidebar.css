@@ -1,0 +1,8 @@
+.nav {
+	background-color: rgb(255, 255, 255);
+}
+
+.active-nav {
+	background-color: rgb(60, 60, 60);
+	color: white;
+}
