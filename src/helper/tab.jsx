@@ -1,6 +1,7 @@
 import { FaEyeSlash, FaRegFolderOpen, FaRegHeart, FaRegStar, FaStar } from "react-icons/fa";
 import { FiHome } from "react-icons/fi";
 import { TbMessageDots, TbSettings } from "react-icons/tb";
+import { MdOutlineLibraryAdd } from "react-icons/md";
 
 export const SIDEBAR_TOP_TABS = [
 	{ path: "/", label: "Home", icon: <FiHome /> },
@@ -8,6 +9,7 @@ export const SIDEBAR_TOP_TABS = [
 	{ path: "/like", label: "Like", icon: <FaRegHeart /> },
 	{ path: "/saved", label: "Saved", icon: <FaRegStar /> },
 	{ path: "/ask", label: "Ask", icon: <TbMessageDots /> },
+	{ path: "/addblog", label: "Add", icon: <MdOutlineLibraryAdd /> },
 ];
 
 export const SIDEBAR_BOTTOM_TABS = [{ path: "/settings", label: "Settings", icon: <TbSettings /> }];

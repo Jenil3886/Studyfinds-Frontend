@@ -1,55 +1,106 @@
 import { useState } from "react";
-import { Header } from "../../layout/header";
-import { Footer } from "../../layout/footer";
+import { RxCross2 } from "react-icons/rx";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-export const Login = () => {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+const apiClient = axios.create({
+  baseURL: "http://localhost:3000/api", // ||  process.env.REACT_APP_API_URL
+  withCredentials: true,
+});
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		console.log("Email:", email);
-		console.log("Password:", password);
-	};
+const LoginModal = () => {
+  const navigate = useNavigate();
 
-	return (
-		<div className="min-h-screen flex flex-col">
-			<Header />
-			<main className="flex-grow container mx-auto px-4 py-8">
-				<h1 className="text-4xl font-bold mb-8">Login</h1>
-				<form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-					<div className="mb-4">
-						<label htmlFor="email" className="block text-gray-700 font-bold mb-2">
-							Email
-						</label>
-						<input
-							type="email"
-							id="email"
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
-							className="w-full p-2 border border-gray-300 rounded"
-							required
-						/>
-					</div>
-					<div className="mb-4">
-						<label htmlFor="password" className="block text-gray-700 font-bold mb-2">
-							Password
-						</label>
-						<input
-							type="password"
-							id="password"
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-							className="w-full p-2 border border-gray-300 rounded"
-							required
-						/>
-					</div>
-					<button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-						Login
-					</button>
-				</form>
-			</main>
-			<Footer />
-		</div>
-	);
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setIsLoading(true);
+
+    try {
+      const response = await apiClient.post("/login", formData);
+
+      localStorage.setItem("auth_token", response.data.token);
+      navigate("/dashboard"); // Update with your desired route
+    } catch (error) {
+      setError(error.response?.data?.message || "Login failed. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 justify-center items-center">
+      {/* Close button with navigation */}
+      <div className="w-full flex gap-40 items-baseline">
+        <RxCross2
+          className="text-[25px] cursor-pointer"
+          onClick={() => navigate("/")} // Add proper navigation
+        />
+        <div className="flex flex-col gap-3 justify-center items-center">
+          <h2 className="text-[28px] font-semibold">Log In</h2>
+          <p>Welcome back!</p>
+        </div>
+      </div>
+
+      <input
+        type="text"
+        name="username"
+        value={formData.username}
+        onChange={handleChange}
+        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+        placeholder="Username"
+        required
+      />
+
+      <input
+        type="password"
+        name="password"
+        value={formData.password}
+        onChange={handleChange}
+        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+        placeholder="Enter Your Password"
+        required
+      />
+
+      {error && <div className="text-red-500 text-sm">{error}</div>}
+
+      <button
+        type="submit"
+        disabled={isLoading}
+        className="bg-black text-white w-full py-2.5 rounded-full"
+      >
+        {isLoading ? "Logging in..." : "Continue with email"}
+      </button>
+
+      <p className="text-sm text-gray-500 select-none">
+        By clicking "Continue with Email" you agree to our <u>Terms of Service</u> and{" "}
+        <u>Privacy Policy</u>.
+      </p>
+
+      <button
+        type="button"
+        className="text-blue-500 text-sm underline"
+        onClick={() => navigate("/forgot-password")} // Add proper route
+      >
+        Forgot Password?
+      </button>
+    </form>
+  );
 };
+
+export default LoginModal;
