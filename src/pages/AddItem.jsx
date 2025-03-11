@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { FcAddImage } from "react-icons/fc";
+import { VscSend } from "react-icons/vsc";
+import { apiCall } from "../api/config";
+import { REQ_METHODS } from "../helper/constants";
 
-export const AddBlog = () => {
+export const AddItem = () => {
 	const [formData, setFormData] = useState({
 		title: "",
 		tags: "",
@@ -14,6 +17,43 @@ export const AddBlog = () => {
 		userAvatarInitial: "",
 		userAvatarColor: "",
 	});
+
+	const [user, setUser] = useState(null);
+
+	useEffect(() => {
+		const fetchUserData = async () => {
+			try {
+				const response = await apiCall("/users/profile", {});
+
+				console.log(response);
+
+				setUser(response);
+			} catch (error) {
+				console.error("Error:", error);
+			}
+		};
+
+		fetchUserData();
+	}, []);
+
+	const [caches, setCaches] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
+
+	const fetchCaches = useCallback(async () => {
+		try {
+			const response = await apiCall("/caches", {});
+
+			setCaches(response.data);
+			setLoading(false);
+		} catch (err) {
+			setError(err.message);
+			setLoading(false);
+		}
+	}, []);
+	useEffect(() => {
+		fetchCaches();
+	}, [fetchCaches]);
 
 	const [imagePreview, setImagePreview] = useState(null);
 	const [dragActive, setDragActive] = useState(false);
@@ -76,16 +116,52 @@ export const AddBlog = () => {
 		setImagePreview(null);
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log("Blog Is Created");
+		const data = new FormData();
+		for (const key in formData) {
+			if (key === "image" && formData[key]) {
+				data.append(key, formData[key]);
+			} else {
+				data.append(key, formData[key]);
+			}
+		}
+
+		try {
+			const response = await apiCall("/items", {
+				method: REQ_METHODS.POST,
+				body: data,
+			});
+			if (response.ok) {
+				const result = await response.json();
+				console.log(result.message);
+				// Reset form
+				setFormData({
+					title: "",
+					tags: "",
+					description: "",
+					image: null,
+					sourceName: "",
+					sourceIcon: "",
+					userName: "",
+					userAvatar: "",
+					userAvatarInitial: "",
+					userAvatarColor: "",
+				});
+				setImagePreview(null);
+			} else {
+				console.error("Failed to create blog");
+			}
+		} catch (error) {
+			console.error("Error:", error);
+		}
 	};
 
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50">
 			<div className="container mx-auto px-4 py-12">
 				<h1 className="text-4xl md:text-5xl md:leading-normal font-extrabold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-teal-500 animate-gradient animate-duration-[5s] animate-direction-alternate">
-					Create New Blog Post
+					Create New Item
 				</h1>
 
 				<form
@@ -95,7 +171,7 @@ export const AddBlog = () => {
 					{/* Title */}
 					<div className=" flex flex-col gap-1">
 						<label htmlFor="title" className="input-label">
-							Blog Title
+							Item Title
 						</label>
 						<input
 							type="text"
@@ -127,7 +203,7 @@ export const AddBlog = () => {
 					{/* Description */}
 					<div className=" flex flex-col gap-1">
 						<label htmlFor="description" className="input-label">
-							Blog Content
+							Item Content
 						</label>
 						<textarea
 							id="description"
@@ -186,10 +262,10 @@ export const AddBlog = () => {
 										backgroundColor: formData.userAvatarColor || "#cbd5e0",
 									}}
 								>
-									{formData.userAvatarInitial || "A"}
+									{/* {user.username.slice(0, 2).toUpperCase()} */}
 								</div>
 								<div>
-									<div className="text-lg font-medium text-gray-900 ">{formData.userName || "Author Name"}</div>
+									<div className="text-lg font-medium text-gray-900 ">{/* @{user.username} */}</div>
 									<div className="text-sm text-gray-600 ">Just now</div>
 								</div>
 							</div>
@@ -229,66 +305,27 @@ export const AddBlog = () => {
 						</div>
 					</div>
 
-					{/* User Section */}
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-6 ">
-						<div className="flex flex-col gap-1">
-							<label htmlFor="userName" className="input-label">
-								Author Name
-							</label>
-							<input
-								type="text"
-								id="userName"
-								name="userName"
-								value={formData.userName}
-								onChange={handleChange}
-								required
-								className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5  peer"
-							/>
-						</div>
-
-						<div className="flex flex-col gap-1">
-							<label htmlFor="userAvatar" className="input-label">
-								Avatar URL
-							</label>
-							<input
-								type="text"
-								id="userAvatar"
-								name="userAvatar"
-								value={formData.userAvatar}
-								onChange={handleChange}
-								className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5  peer"
-							/>
-						</div>
-
-						<div className="flex flex-col gap-1">
-							<label htmlFor="userAvatarInitial" className="input-label">
-								Avatar Initial
-							</label>
-							<input
-								type="text"
-								id="userAvatarInitial"
-								name="userAvatarInitial"
-								value={formData.userAvatarInitial}
-								onChange={handleChange}
-								maxLength={2}
-								className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5  peer"
-							/>
-						</div>
-
-						<div className="flex flex-col gap-1">
-							<label htmlFor="userAvatarColor" className="input-label">
-								Avatar Color
-							</label>
-							<input
-								type="color"
-								id="userAvatarColor"
-								name="userAvatarColor"
-								value={formData.userAvatarColor}
-								onChange={handleChange}
-								className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-0.5 peer h-11"
-							/>
-						</div>
-					</div>
+					<h3 className="font-semibold text-gray-900">Select Caches</h3>
+					<ul className="flex justify-around flex-wrap gap-3 p-2 bg-white border border-gray-200 rounded-lg shadow-sm">
+						{caches.map((cache, index) => (
+							<li
+								key={cache._id}
+								className={`flex items-center gap-2 p-2 hover:bg-gray-100 hover:border  transition-all hover:rounded-md ${
+									index !== caches.length - 1 ? "border-r border-gray-300" : ""
+								}`}
+							>
+								<input
+									id={`cache-${cache._id}`}
+									type="checkbox"
+									value={cache._id}
+									className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2 focus:outline-none"
+								/>
+								<label htmlFor={`cache-${cache._id}`} className="text-sm font-medium text-gray-900 cursor-pointer select-none">
+									{cache.title}
+								</label>
+							</li>
+						))}
+					</ul>
 
 					{/* Submit Button */}
 					<button
@@ -298,10 +335,8 @@ export const AddBlog = () => {
               transition-all duration-300 ease-in-out transform hover:scale-105 
               active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-500"
 					>
-						Publish Blog
-						<svg className="w-5 h-5 ml-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-						</svg>
+						Publish Item
+						<VscSend className="w-5 h-5 ml-2 inline-block" />
 					</button>
 				</form>
 			</div>

@@ -2,14 +2,16 @@ import { FaEyeSlash, FaRegFolderOpen, FaRegHeart, FaRegStar, FaStar } from "reac
 import { FiHome } from "react-icons/fi";
 import { TbMessageDots, TbSettings } from "react-icons/tb";
 import { MdOutlineLibraryAdd } from "react-icons/md";
+import { LuUser } from "react-icons/lu";
 
 export const SIDEBAR_TOP_TABS = [
 	{ path: "/", label: "Home", icon: <FiHome /> },
-	{ path: "/topics", label: "Topics", icon: <FaRegFolderOpen /> },
+	{ path: "/topics", label: "Caches", icon: <FaRegFolderOpen /> },
+	{ path: "/people", label: "people", icon: <LuUser /> },
+	{ path: "/addItem", label: "Add", icon: <MdOutlineLibraryAdd /> },
 	{ path: "/like", label: "Like", icon: <FaRegHeart /> },
 	{ path: "/saved", label: "Saved", icon: <FaRegStar /> },
 	{ path: "/ask", label: "Ask", icon: <TbMessageDots /> },
-	{ path: "/addblog", label: "Add", icon: <MdOutlineLibraryAdd /> },
 ];
 
 export const SIDEBAR_BOTTOM_TABS = [{ path: "/settings", label: "Settings", icon: <TbSettings /> }];
@@ -40,13 +42,13 @@ export const SAVE_TABS = [
 // ];
 
 export const ITEM_FILTER_TABS = [
-	{ value: "private", label: "Private", icon: <FaEyeSlash /> },
+	{ value: "private", label: "private", icon: <FaEyeSlash /> },
 	{ value: "asked", label: "Ask", icon: <TbMessageDots /> },
 	{ value: "created-by-you", label: "Created By You" },
 ];
 
 export const CACHES_FILTER_TABS = [
-	{ value: "private", label: "Private", icon: <FaEyeSlash /> },
+	{ value: "private", label: "private", icon: <FaEyeSlash /> },
 	{ value: "starred", label: "Starred", icon: <FaStar /> },
 	{ value: "created-by-you", label: "Created By You" },
 ];

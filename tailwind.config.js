@@ -6,6 +6,15 @@ export default {
 			colors: {
 				primary: "#CDF87F",
 			},
+			animation: {
+				scale: "scale 1.5s ease-in-out infinite",
+			},
+			keyframes: {
+				scale: {
+					"0%, 100%": { transform: "scale(1) translateY(-50%)" },
+					"50%": { transform: "scale(1.5) translateY(-50%)" },
+				},
+			},
 		},
 	},
 	plugins: [],

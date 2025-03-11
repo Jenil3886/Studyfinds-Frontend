@@ -85,8 +85,6 @@ const Item = () => {
 
 	return (
 		<div>
-			{/* <ItemHeader /> */}
-
 			<header
 				className="w-full px-4 flex items-center justify-between gap-3 font-bold text-white text-xl border-b border-gray-200"
 				style={{

@@ -21,11 +21,11 @@ export const CacheCard = memo(({ cache, openAskModal, starredCaches }) => {
 		>
 			<div className="w-full flex justify-between">
 				<div className="h-16 w-16">
-					<img src={cache.img} alt={cache.name} />
+					<img src={cache.cover_img} alt={cache.title} />
 				</div>
 				<div onClick={starToggle}>{isStarred ? <FaStar className="text-primary" /> : <FaRegStar />}</div>
 			</div>
-			<div className="font-bold text-xl">{cache.name}</div>
+			<div className="font-bold text-xl">{cache.title}</div>
 			<div className="w-full flex justify-between">
 				<div className="text-gray-600 text-sm">{cache.count} items</div>
 				<div onClick={() => openAskModal(cache)} className="">

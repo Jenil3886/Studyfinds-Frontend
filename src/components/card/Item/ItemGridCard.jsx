@@ -71,7 +71,7 @@ export const ItemGridCard = ({ item, isStarred, isLiked, setIsModalOpen }) => {
 				</div>
 			</div>
 
-			{item.imageUrl && <img alt="Preview" loading="lazy" className="w-full h-48 object-cover rounded-md" src={item.imageUrl} />}
+			{item.imageUrl && <img alt={item.title} loading="lazy" className="w-full h-48 object-cover rounded-md bg-gray-100" src={item.imageUrl} />}
 			<div className="flex items-center justify-between gap-x-2 mt-2">
 				<div className=" flex gap-1 items-center">
 					{item.user.avatar !== "" ? (

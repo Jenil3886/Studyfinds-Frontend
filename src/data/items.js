@@ -1,4 +1,27 @@
-import Image1 from "../assets/img/items/image (1).webp";
+import Image1 from "../assets/img/items/image1.webp";
+import Image2 from "../assets/img/items/image2.webp";
+import Image3 from "../assets/img/items/image3.webp";
+import Image4 from "../assets/img/items/image4.webp";
+import Image5 from "../assets/img/items/image5.webp";
+import Image6 from "../assets/img/items/image6.webp";
+import Image7 from "../assets/img/items/image7.webp";
+import Image8 from "../assets/img/items/image8.webp";
+import Image9 from "../assets/img/items/image9.webp";
+import Image10 from "../assets/img/items/image10.webp";
+import Image11 from "../assets/img/items/image11.webp";
+import Image12 from "../assets/img/items/image12.webp";
+import Image13 from "../assets/img/items/image13.webp";
+import Image14 from "../assets/img/items/image14.webp";
+import Image15 from "../assets/img/items/image15.webp";
+import Image16 from "../assets/img/items/image16.webp";
+import Image17 from "../assets/img/items/image17.webp";
+import Image18 from "../assets/img/items/image18.webp";
+import Image19 from "../assets/img/items/image19.webp";
+import Image20 from "../assets/img/items/image20.webp";
+import Image21 from "../assets/img/items/image21.webp";
+import Image22 from "../assets/img/items/image22.webp";
+import Image23 from "../assets/img/items/image23.webp";
+import Image24 from "../assets/img/items/image24.webp";
 
 export const HOME_ITEMS = [
 	{
@@ -17,7 +40,7 @@ export const HOME_ITEMS = [
 		title: "Healthy Meals for Busy People",
 		tags: ["#health", "#meals", "#lifestyle"],
 		description: "Quick and easy meals that are both healthy and delicious.",
-		imageUrl: "/Frontend/src/assets/img/items/image (2).webp",
+		imageUrl: Image2,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image3.webp" },
 		stats: { comments: 3, views: 85, sparks: 7 },
 		user: { name: "@samuser3", time: "5 hours ago", avatar: "/src/components/img/image3.webp", avatarInitial: "gj", avatarColor: "#FFC107" },
@@ -28,7 +51,7 @@ export const HOME_ITEMS = [
 		title: "Top Coding Bootcamps in 2025",
 		tags: ["#coding", "#education", "#programming"],
 		description: "Explore the best coding bootcamps for aspiring developers.",
-		imageUrl: "/Frontend/src/assets/img/items/image (3).webp",
+		imageUrl: Image3,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "" },
 		stats: { comments: 12, views: 312, sparks: 22 },
 		user: { name: "@samuser4", time: "1 day ago", avatar: "/src/components/img/image4.webp", avatarInitial: "gj", avatarColor: "#4CAF50" },
@@ -39,7 +62,7 @@ export const HOME_ITEMS = [
 		title: "Affordable Cars for First-Time Buyers",
 		tags: ["#hooked", "#phonics", "#commercial"],
 		description: "An in-depth look at the latest advancements in car technology.",
-		imageUrl: "/Frontend/src/assets/img/items/image (4).webp",
+		imageUrl: Image4,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image.webp" },
 		stats: { comments: 0, views: 48, sparks: 9 },
 		user: { name: "@samuser1", time: "3 hours ago", avatar: "/src/components/img/image.webp", avatarInitial: "gj", avatarColor: "#009688" },
@@ -50,7 +73,7 @@ export const HOME_ITEMS = [
 		title: "Travel Destinations for 2025",
 		tags: ["#travel", "#destinations", "#adventure"],
 		description: "Discover the most beautiful travel spots for the upcoming year.",
-		imageUrl: "/Frontend/src/assets/img/items/image (5).webp",
+		imageUrl: Image5,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image5.webp" },
 		stats: { comments: 9, views: 180, sparks: 35 },
 		user: { name: "@samuser5", time: "8 hours ago", avatar: "/src/components/img/image5.webp", avatarInitial: "gj", avatarColor: "#E91E63" },
@@ -61,7 +84,7 @@ export const HOME_ITEMS = [
 		title: "Fitness Tips for Beginners",
 		tags: ["#fitness", "#workout", "#health"],
 		description: "Simple and effective workout tips for beginners.",
-		imageUrl: "/Frontend/src/assets/img/items/image (6).webp",
+		imageUrl: Image6,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image6.webp" },
 		stats: { comments: 4, views: 95, sparks: 13 },
 		user: { name: "@samuser6", time: "2 hours ago", avatar: "/src/components/img/image6.webp", avatarInitial: "gj", avatarColor: "#9C27B0" },
@@ -72,7 +95,7 @@ export const HOME_ITEMS = [
 		title: "Healthy Eating Habits",
 		tags: ["#nutrition", "#health", "#wellness"],
 		description: "Learn the basics of maintaining a balanced and nutritious diet.",
-		imageUrl: "/Frontend/src/assets/img/items/image (7).webp",
+		imageUrl: Image7,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image7.webp" },
 		stats: { comments: 8, views: 120, sparks: 22 },
 		user: { name: "@healthguru9", time: "5 hours ago", avatar: "/src/components/img/image7.webp", avatarInitial: "hg", avatarColor: "#4CAF50" },
@@ -83,7 +106,7 @@ export const HOME_ITEMS = [
 		title: "Advanced Yoga Techniques",
 		tags: ["#yoga", "#fitness", "#mentalhealth"],
 		description: "Take your yoga practice to the next level with these advanced techniques.",
-		imageUrl: "/Frontend/src/assets/img/items/image (8).webp",
+		imageUrl: Image8,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image8.webp" },
 		stats: { comments: 12, views: 180, sparks: 35 },
 		user: { name: "@yogamaster1", time: "3 hours ago", avatar: "/src/components/img/image8.webp", avatarInitial: "ym", avatarColor: "#FF5722" },
@@ -94,7 +117,7 @@ export const HOME_ITEMS = [
 		title: "Building Muscle with Weight Training",
 		tags: ["#fitness", "#musclebuilding", "#strength"],
 		description: "A comprehensive guide on building muscle with weight training exercises.",
-		imageUrl: "/Frontend/src/assets/img/items/image (9).webp",
+		imageUrl: Image9,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image9.webp" },
 		stats: { comments: 15, views: 220, sparks: 42 },
 		user: { name: "@musclemaniac", time: "1 day ago", avatar: "/src/components/img/image9.webp", avatarInitial: "mm", avatarColor: "#2196F3" },
@@ -105,7 +128,7 @@ export const HOME_ITEMS = [
 		title: "Top 10 Cardio Exercises for Fat Loss",
 		tags: ["#cardio", "#fatloss", "#fitness"],
 		description: "The best cardio exercises to burn fat and improve cardiovascular health.",
-		imageUrl: "/Frontend/src/assets/img/items/image (10).webp",
+		imageUrl: Image10,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image10.webp" },
 		stats: { comments: 5, views: 150, sparks: 27 },
 		user: { name: "@cardioexpert", time: "10 hours ago", avatar: "/src/components/img/image10.webp", avatarInitial: "ce", avatarColor: "#8BC34A" },
@@ -116,7 +139,7 @@ export const HOME_ITEMS = [
 		title: "The Importance of Stretching Before a Workout",
 		tags: ["#stretching", "#fitness", "#injuryprevention"],
 		description: "Why stretching before exercise is crucial to avoid injury and improve flexibility.",
-		imageUrl: "/Frontend/src/assets/img/items/image (11).webp",
+		imageUrl: Image11,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image11.webp" },
 		stats: { comments: 9, views: 110, sparks: 19 },
 		user: { name: "@fitandflexible", time: "6 hours ago", avatar: "/src/components/img/image11.webp", avatarInitial: "ff", avatarColor: "#9C27B0" },
@@ -127,7 +150,7 @@ export const HOME_ITEMS = [
 		title: "Mental Health and Exercise: How They Are Connected",
 		tags: ["#mentalhealth", "#exercise", "#wellness"],
 		description: "Exploring the connection between physical activity and mental well-being.",
-		imageUrl: "/Frontend/src/assets/img/items/image (12).webp",
+		imageUrl: Image12,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image12.webp" },
 		stats: { comments: 7, views: 130, sparks: 30 },
 		user: { name: "@mindandbody", time: "2 days ago", avatar: "/src/components/img/image12.webp", avatarInitial: "mb", avatarColor: "#FF9800" },
@@ -138,7 +161,7 @@ export const HOME_ITEMS = [
 		title: "Healthy Smoothie Recipes for Weight Loss",
 		tags: ["#nutrition", "#smoothies", "#weightloss"],
 		description: "Quick and easy smoothie recipes to help with weight loss and boost your metabolism.",
-		imageUrl: "/Frontend/src/assets/img/items/image (13).webp",
+		imageUrl: Image13,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image13.webp" },
 		stats: { comments: 10, views: 250, sparks: 40 },
 		user: { name: "@smoothiequeen", time: "1 day ago", avatar: "/src/components/img/image13.webp", avatarInitial: "sq", avatarColor: "#F44336" },
@@ -149,7 +172,7 @@ export const HOME_ITEMS = [
 		title: "Home Workout Routine for Beginners",
 		tags: ["#homeworkout", "#fitness", "#beginners"],
 		description: "A simple yet effective home workout routine for those just starting out.",
-		imageUrl: "/Frontend/src/assets/img/items/image (14).webp",
+		imageUrl: Image14,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image14.webp" },
 		stats: { comments: 4, views: 80, sparks: 13 },
 		user: { name: "@homefitcoach", time: "3 hours ago", avatar: "/src/components/img/image14.webp", avatarInitial: "hf", avatarColor: "#3F51B5" },
@@ -160,7 +183,7 @@ export const HOME_ITEMS = [
 		title: "Tips for Staying Motivated to Workout",
 		tags: ["#motivation", "#fitness", "#workout"],
 		description: "Learn how to stay motivated to reach your fitness goals.",
-		imageUrl: "/Frontend/src/assets/img/items/image (15).webp",
+		imageUrl: Image15,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image15.webp" },
 		stats: { comments: 6, views: 95, sparks: 17 },
 		user: {
@@ -177,7 +200,7 @@ export const HOME_ITEMS = [
 		title: "Understanding the Basics of Strength Training",
 		tags: ["#strength", "#training", "#fitness"],
 		description: "A beginner’s guide to understanding the basics of strength training.",
-		imageUrl: "/Frontend/src/assets/img/items/image16.webp",
+		imageUrl: Image16,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image16.webp" },
 		stats: { comments: 14, views: 200, sparks: 29 },
 		user: { name: "@strengthcoach", time: "8 hours ago", avatar: "/src/components/img/image16.webp", avatarInitial: "sc", avatarColor: "#673AB7" },
@@ -188,7 +211,7 @@ export const HOME_ITEMS = [
 		title: "How to Prevent Common Workout Injuries",
 		tags: ["#injuryprevention", "#fitness", "#health"],
 		description: "Important tips to avoid common workout injuries and stay safe while training.",
-		imageUrl: "/Frontend/src/assets/img/items/image17.webp",
+		imageUrl: Image17,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image17.webp" },
 		stats: { comments: 5, views: 70, sparks: 11 },
 		user: { name: "@fitandhealthy", time: "9 hours ago", avatar: "/src/components/img/image17.webp", avatarInitial: "fh", avatarColor: "#00BCD4" },
@@ -199,7 +222,7 @@ export const HOME_ITEMS = [
 		title: "Post-Workout Nutrition: What to Eat After Exercising",
 		tags: ["#nutrition", "#postworkout", "#fitness"],
 		description: "Essential foods and drinks to consume after exercise for optimal recovery.",
-		imageUrl: "/Frontend/src/assets/img/items/image18.webp",
+		imageUrl: Image18,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image18.webp" },
 		stats: { comments: 3, views: 50, sparks: 9 },
 		user: {
@@ -216,7 +239,7 @@ export const HOME_ITEMS = [
 		title: "Hydration and Performance: Why Water Matters",
 		tags: ["#hydration", "#performance", "#fitness"],
 		description: "Learn the importance of staying hydrated for optimal workout performance.",
-		imageUrl: "/Frontend/src/assets/img/items/image19.webp",
+		imageUrl: Image19,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image19.webp" },
 		stats: { comments: 8, views: 160, sparks: 25 },
 		user: { name: "@hydrationexpert", time: "5 hours ago", avatar: "/src/components/img/image19.webp", avatarInitial: "he", avatarColor: "#009688" },
@@ -227,7 +250,7 @@ export const HOME_ITEMS = [
 		title: "Quick and Effective Home Ab Workout",
 		tags: ["#homeworkout", "#abs", "#fitness"],
 		description: "A short and effective workout to target your abdominal muscles at home.",
-		imageUrl: "/Frontend/src/assets/img/items/image20.webp",
+		imageUrl: Image20,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image20.webp" },
 		stats: { comments: 2, views: 45, sparks: 6 },
 		user: { name: "@abdominalexpert", time: "4 hours ago", avatar: "/src/components/img/image20.webp", avatarInitial: "ae", avatarColor: "#9C27B0" },
@@ -238,7 +261,7 @@ export const HOME_ITEMS = [
 		title: "Understanding Macros for a Healthier Diet",
 		tags: ["#nutrition", "#diet", "#macros"],
 		description: "Learn how to balance macros in your diet for better health and fitness.",
-		imageUrl: "/Frontend/src/assets/img/items/image21.webp",
+		imageUrl: Image21,
 		source: { name: "source", srcIcon: "IoIosLink", avatar: "/src/components/img/image21.webp" },
 		stats: { comments: 4, views: 60, sparks: 15 },
 		user: { name: "@nutritionalguide", time: "7 hours ago", avatar: "/src/components/img/image21.webp", avatarInitial: "ng", avatarColor: "#607D8B" },

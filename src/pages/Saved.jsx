@@ -11,7 +11,7 @@ const tabStyle = {
 
 export const Save = () => {
 	const [activeTab, setActiveTab] = useState("items");
-	const [isPrivate, setIsPrivate] = useState(false);
+	const [isprivate, setIsprivate] = useState(false);
 	const [isAsked, setIsAsked] = useState(false);
 	const [isStarred, setIsStarred] = useState(false);
 	const [ownCreated, setOwnCreated] = useState(false);
@@ -20,8 +20,8 @@ export const Save = () => {
 		setActiveTab(tab);
 	};
 
-	const togglePrivate = () => {
-		setIsPrivate(!isPrivate);
+	const toggleprivate = () => {
+		setIsprivate(!isprivate);
 	};
 
 	const toggleAsked = () => {
@@ -70,12 +70,12 @@ export const Save = () => {
 					<div className="flex items-center justify-between gap-2">
 						<div
 							className={`flex items-center text-[14px] bg-gray-100 text-gray-500 gap-1.5 font-semibold px-6 py-2 rounded-full border-2 hover:cursor-pointer ${
-								isPrivate ? "border-gray-900" : "border-transparent"
+								isprivate ? "border-gray-900" : "border-transparent"
 							}`}
-							onClick={togglePrivate}
+							onClick={toggleprivate}
 						>
 							<FaEyeSlash />
-							<span>Private</span>
+							<span>private</span>
 						</div>
 
 						{activeTab === "caches" ? (
